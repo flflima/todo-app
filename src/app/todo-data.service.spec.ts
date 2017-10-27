@@ -64,4 +64,32 @@ describe('TodoDataService', () => {
       })
     );
   });
+
+  describe('#updateTodoById(id, values)', () => {
+    it('should return todo with the corresponding id and updated data',
+      inject([TodoDataService], (service: TodoDataService) => {
+        let todo = new Todo({title: 'Hello 1', complete: false});
+
+        service.addTodo(todo);
+
+        let updatedTodo = service.updateTodoById(1, {
+          title: 'new Title'
+        });
+
+        expect(updatedTodo.title).toEqual('new Title');
+        }));
+
+      it('should return null if todo is not found',
+        inject([TodoDataService], (service: TodoDataService) => {
+          let todo = new Todo({title: 'Hello 1', complete: false});
+
+          service.addTodo(todo);
+
+          let updateTodo = service.updateTodoById(12, {
+            title: 'new title'
+          });
+
+          expect(updateTodo).toEqual(null);
+        }));
+  });
 });
