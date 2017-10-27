@@ -53,4 +53,25 @@ export class TodoDataService {
 
       return todo;
     }
+
+    // Toggle todo complete
+    // toggleTodoComplete(id: number): Todo {
+    //   let todo = this.getTodoById(id);
+
+    //   if (!todo) {
+    //     return null;
+    //   }
+
+    //   todo = this.updateTodoById(todo.id, {
+    //     complete: !todo.complete
+    //   });
+
+    //   return todo;
+    // }
+    toggleTodoComplete(todo: Todo) {
+      let updatedTodo = this.updateTodoById(todo.id, {
+        complete: !todo.complete
+      });
+      return updatedTodo;
+    }
 }
