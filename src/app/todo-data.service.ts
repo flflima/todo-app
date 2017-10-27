@@ -21,4 +21,11 @@ export class TodoDataService {
       this.todos.push(todo);
       return this;
     }
+
+    // Simulate GET /todos/:id
+    getTodoById(id: number): Todo {
+      return this.todos
+              .filter(todo => todo.id === id)
+              .pop();
+    }
 }

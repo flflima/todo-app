@@ -23,8 +23,8 @@ describe('TodoDataService', () => {
         service.addTodo(todo1);
         service.addTodo(todo2);
 
-        expect(1).toEqual(todo1.id);
-        expect(2).toEqual(todo2.id);
+        expect(service.getTodoById(1)).toEqual(todo1);
+        expect(service.getTodoById(2)).toEqual(todo2);
       }));
   });
 });
