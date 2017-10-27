@@ -28,4 +28,9 @@ export class TodoDataService {
               .filter(todo => todo.id === id)
               .pop();
     }
+
+    // Simulate GET /todos
+    getAllTodos(): Todo[] {
+      return this.todos;
+    }
 }
