@@ -1,3 +1,4 @@
+import { TodoDataService } from './todo-data.service';
 import { Injectable } from '@angular/core';
 import { Todo } from './todo';
 
@@ -32,5 +33,12 @@ export class TodoDataService {
     // Simulate GET /todos
     getAllTodos(): Todo[] {
       return this.todos;
+    }
+
+    // Simulate DELETE /todos/:id
+    deleteTodoById(id: number): TodoDataService {
+      this.todos = this.todos
+                    .filter(todo => todo.id !== id);
+      return this;
     }
 }
