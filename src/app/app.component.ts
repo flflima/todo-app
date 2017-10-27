@@ -21,7 +21,8 @@ export class AppComponent {
   }
 
   addTodo() {
-
+    this.todoDataService.addTodo(this.newTodo);
+    this.newTodo = new Todo();
   }
 
   // Service is now available as this.todoDataService
@@ -30,10 +31,10 @@ export class AppComponent {
   }
 
   removeTodo(todo) {
-
+    this.todoDataService.deleteTodoById(todo.id);
   }
 
   get todos() {
-    return '';
+    return this.todoDataService.getAllTodos();
   }
 }
